@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "bscm",
+  "version": "${version}",
+  "name": "BSCM",
+  "description": "A Config Mod that is alright I guess",
+  "authors": [],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "assets/bscm/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "ca.techgarage.bscm.client.BscmDataGenerator"
+    ],
+    "client": [
+      "ca.techgarage.bscm.client.BscmClient"
+    ],
+    "main": [
+      "ca.techgarage.bscm.Bscm"
+    ]
+  },
+  "mixins": [
+    "bscm.mixins.json",
+    {
+      "config": "bscm.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
