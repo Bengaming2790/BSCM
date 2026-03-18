@@ -1,10 +1,28 @@
 package ca.techgarage.bscm;
 
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
+import java.nio.file.Path;
 
-public class Bscm implements ModInitializer {
+public final class Bscm {
 
-    @Override
-    public void onInitialize() {
+    private Bscm() {}
+
+
+    public static void load(Class<?> configClass, String filename) {
+        Path path = FabricLoader.getInstance()
+                .getConfigDir()
+                .resolve(filename + ".yaml");
+        ConfigManager.load(configClass, path);
+    }
+
+    public static void save(Class<?> configClass, String filename) {
+        Path path = FabricLoader.getInstance()
+                .getConfigDir()
+                .resolve(filename + ".yaml");
+        try {
+            ConfigManager.writeFile(configClass, path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

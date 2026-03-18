@@ -1,4 +1,9 @@
 package ca.techgarage.bscm;
 
-public class Comment {
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface Comment {
+    String value();
 }
