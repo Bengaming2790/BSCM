@@ -1,4 +1,4 @@
-BSCM (Ben's S#### Config Mod)
+# BSCM (Ben's S#### Config Mod)
 
 BSCM is a lightweight, YAML configuration library for Fabric mods. It simplifies config creation, loading, and editing, so you can focus on building features instead of boilerplate.
 
@@ -32,37 +32,44 @@ Example:
 
 Gradle:
 
-`'repositories{
+```repositories{
 
 maven {
 
-name = "Modrinth"
+  name = "Modrinth"
 
-url = "https://api.modrinth.com/maven"
+  url = "https://api.modrinth.com/maven"
+}
 
 dependencies {
 
-modImplementation "maven.modrinth:bscm:1.0.0"
+  modImplementation "maven.modrinth:bscm:1.0.0"
 
 }
+```
 
 Config Class:
-
+```Java
 public class ExampleConfig {
 
-@Comment("Enable the feature") public boolean enabled = true:
+@Comment("Enable the feature")
+public boolean enabled = true:
 
-@Comment("Maximum value") public int maxValue = 10;
-
+@Comment("Maximum value")
+public int maxValue = 10;
+}
+```
 Main Class:
 
-Java
+```Java
 
 import ca.techgarage.bscm.Bscm;
 
 public void onInitialize() {
 
 Bscm.load(ExampleConfig.class, "file name here");
+}
+```
 
 BSCM will automatically:
 
@@ -74,7 +81,7 @@ Save changes when updated
 
 ## In-Game Configuration
 
-If you have [**Mod Menu**] (https://modrinth.com/mod/modmenu) installed, BSCM provides a simple config GUI so users can edit settings without leaving the game.
+If you have **[Mod Menu]([url](https://modrinth.com/mod/modmenu))** installed, BSCM provides a simple config GUI so users can edit settings without leaving the game.
 
 ##
 
@@ -84,8 +91,3 @@ Fabric Loader ≥ 0.15.0
 
 (Optional) Mod Menu for in-game config UI
 
-## Why BSCM?
-
-Most config systems are either:
-
-Too complex
